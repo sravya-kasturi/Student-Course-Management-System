@@ -1,138 +1,140 @@
-# Student Course Management System
+Student Management System (Tkinter + Oracle DB)
 
-## 📌 Overview
-The **Student Course Management System** is a web-based application designed to manage students, courses, and enrollments efficiently. It allows administrators, instructors, and students to interact with the system according to their roles.
+A simple **Student Management System** built using **Python Tkinter** for the GUI and **Oracle Database** for backend storage.  
+The application supports **Admin** and **Student** roles with features like student management, enrollment, attendance, and reports.
 
-## 🎯 Objectives
-- Manage student records
-- Create and manage courses
-- Handle student enrollments
-- Track course progress and grades
-- Provide role-based access
-
-## 🛠️ Technologies Used
-- **Frontend:** HTML, CSS, JavaScript / React / Angular *(update as needed)*
-- **Backend:** Node.js / Java / Python / PHP *(update as needed)*
-- **Database:** MySQL / PostgreSQL / MongoDB *(update as needed)*
-- **Authentication:** JWT / Session-based authentication
-- **Version Control:** Git & GitHub
+---
 
 ## 🚀 Features
-### Admin
-- Add, update, and delete students
-- Create and manage courses
-- Assign instructors to courses
-- View reports and statistics
 
-### Instructor
-- View assigned courses
-- Manage course content
-- Upload grades
-- View enrolled students
+### Login System
+- Login as **Admin** or **Student**
+- Role-based dashboard
 
-### Student
-- Register and log in
-- Enroll in courses
-- View course materials
-- Check grades and progress
+### Admin Features
+- Add and manage students
+- Record student attendance
+- View reports (Students, Enrollments, Attendance)
 
-## 🧱 System Architecture
-Client (Frontend)
-|
-v
-Server (Backend API)
-|
-v
-Database
+### Student Features
+- Course enrollment
 
-markdown
+---
+
+## 🛠️ Technologies Used
+
+- **Python 3**
+- **Tkinter** (GUI)
+- **Oracle Database (XE)**
+- **oracledb** Python library
+
+---
+
+## 📂 Project Structure
+
+student-management-system/
+│
+├── main.py # Main application file
+├── README.md # Project documentation
+
+yaml
 Copy code
 
-## ⚙️ Installation & Setup
+---
 
-### Prerequisites
-- Git
-- Node.js / Java / Python *(depending on your backend)*
-- Database server
+## 🧩 Database Schema
 
-### Steps
-1. Clone the repository
-   ```bash
-   git clone https://github.com/your-username/student-course-management-system.git
-Navigate to the project directory
+Make sure the following tables exist in your Oracle database:
+
+### Students Table
+```sql
+CREATE TABLE students (
+    student_id NUMBER PRIMARY KEY,
+    name VARCHAR2(100)
+);
+Enrollments Table
+sql
+Copy code
+CREATE TABLE enrollments (
+    student_id NUMBER,
+    course_name VARCHAR2(100)
+);
+Attendance Table
+sql
+Copy code
+CREATE TABLE attendance (
+    student_id NUMBER,
+    status VARCHAR2(20)
+);
+🔧 Configuration
+Update the database connection details in the code:
+
+python
+Copy code
+conn = oracledb.connect(
+    user='SYSTEM',
+    password='tiger',
+    dsn='localhost:1521/XE'
+)
+Ensure:
+
+Oracle XE is running
+
+Tables are created
+
+oracledb package is installed
+
+📦 Installation
+Clone the repository
 
 bash
 Copy code
-cd student-course-management-system
+git clone https://github.com/your-username/student-management-system.git
 Install dependencies
 
 bash
 Copy code
-npm install
-Configure environment variables
-
-bash
-Copy code
-cp .env.example .env
+pip install oracledb
 Run the application
 
 bash
 Copy code
-npm start
-📂 Project Structure
-pgsql
-Copy code
-student-course-management-system/
-│
-├── frontend/
-├── backend/
-├── database/
-├── docs/
-├── README.md
-└── package.json
-🔐 User Roles & Permissions
-Role	Permissions
-Admin	Full access
-Instructor	Course management
-Student	Course enrollment & viewing
+python main.py
+🖥️ Application Flow
+Launch application
 
-📊 Database Schema (Optional)
-Students
+Select login type (Admin / Student)
 
-Courses
+Access dashboard based on role
 
-Enrollments
+Perform operations (Add Student, Enrollment, Attendance, Reports)
 
-Users
+Logout
 
-Grades
+⚠️ Known Issues / Notes
+Error handling is minimal
 
-🧪 Testing
-Unit Testing
+Database connection should ideally be handled globally
 
-Integration Testing
+Passwords are hardcoded (not recommended for production)
 
-Manual Testing
+UI is basic (can be improved with styling)
 
-🐞 Known Issues
-None currently reported
+🔮 Future Enhancements
+Secure authentication (username/password)
 
-🚧 Future Enhancements
-Online exams
+Edit & delete records
 
-Attendance tracking
+Search functionality
 
-Notifications system
+Improved UI/UX
 
-Mobile application support
+Role-based access control
 
-🤝 Contributing
-Contributions are welcome! Please fork the repository and submit a pull request.
-
-📜 License
-This project is licensed under the MIT License.
+Exception handling and logging
 
 👨‍💻 Author
-Sravya Kasturi
+Developed as a Python + Database mini project for learning GUI and database integration.
 
-Email:kasturisravya15@gmail.com
+📜 License
+This project is for educational purposes only.
