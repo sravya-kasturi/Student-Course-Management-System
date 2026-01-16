@@ -34,6 +34,8 @@ Tkinter for GUI
 Oracle Database (XE)
 
 oracledb Python library
+# Demo Video Link
+https://drive.google.com/file/d/1R6g91u6rK7ri5d5iVTa4g-peB-sjhr8q/view?usp=sharing
 
 # System Requirements
 
@@ -111,6 +113,7 @@ The Student Management System is a simple yet effective project for learning Pyt
 
 # License
 This project is created for educational purposes only.
+
 
 
 
